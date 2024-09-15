@@ -17,7 +17,7 @@ class ChangelogRawScreen extends StatelessWidget {
   /// Widget to be built when the file is loading.
   final Widget Function(BuildContext context) onLoading;
 
-  /// Widget to be built when the file isload fails.
+  /// Widget to be built when the file load fails.
   final Widget Function(BuildContext context) onError;
 
   /// Builder that exposes the [Markdown] to be renderer.
