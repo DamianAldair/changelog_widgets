@@ -41,4 +41,5 @@ Now, you can use the screens and dialogs.
 - Raw Material screen: `ChangelogRawScreen`.
 - Built-in Material screen: `ChangelogScreen`.
 - Built-in Material dialog: `ChangelogDialog`.
+- Raw Cupertino screen: `CupertinoChangelogRawScreen`.
 - Built-in Cupertino screen: `CupertinoChangelogScreen`.
