@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Docs added.
+
 ## 0.2.0
 
 - Built-in Cupertino screen.
