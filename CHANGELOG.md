@@ -1,3 +1,7 @@
+## 0.2.2
+
+- Docs fixed.
+
 ## 0.2.1
 
 - Docs added.
