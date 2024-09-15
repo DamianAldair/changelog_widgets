@@ -4,13 +4,28 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 
 import '../shared.dart';
 
+/// Customizable screen material-based.
 class ChangelogRawScreen extends StatelessWidget {
+  /// Markdown file path.
+  ///
+  /// Default: "CHANGELOG.md".
   final String? changelogPath;
+
+  /// A custom app bar to display at the top of the scaffold.
   final PreferredSizeWidget? appBar;
+
+  /// Widget to be built when the file is loading.
   final Widget Function(BuildContext context) onLoading;
+
+  /// Widget to be built when the file isload fails.
   final Widget Function(BuildContext context) onError;
+
+  /// Builder that exposes the `Markdown` to be renderer.
+  ///
+  /// Note: `Markdown` inherits from `Widget`.
   final Widget Function(BuildContext context, Widget markdown) bodyBuilder;
 
+  /// Raw screen constructor.
   const ChangelogRawScreen({
     super.key,
     this.appBar,
