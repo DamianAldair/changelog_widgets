@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
+import '../../changelog_widgets.dart';
 import '../shared.dart';
 
 /// Changelog screen cupertino-based.
@@ -52,42 +52,19 @@ class CupertinoChangelogScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final path = changelogPath ?? defaultChangelogPath;
 
-    return CupertinoPageScaffold(
+    return CupertinoChangelogRawScreen(
+      changelogPath: path,
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: automaticallyImplyLeading,
         automaticallyImplyMiddle: automaticallyImplyMiddle,
         middle: middle ?? const Text(widgetTitle),
       ),
-      child: SafeArea(
-        child: FutureBuilder(
-          future: rootBundle.loadString(path),
-          builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-            if (snapshot.connectionState != ConnectionState.done) {
-              return onLoading?.call(context) ??
-                  const Center(
-                    child: CupertinoActivityIndicator(),
-                  );
-            }
-
-            if (snapshot.hasError) {
-              return onError?.call(context) ??
-                  Center(
-                    child: Text(getDefaultErrorMessage(path)),
-                  );
-            }
-
-            final scrollController = ScrollController();
-            final markdown = Markdown(
-              controller: scrollController,
-              data: snapshot.data!,
-            );
-            return CupertinoScrollbar(
-              controller: scrollController,
-              child: bodyBuilder?.call(context, markdown) ?? markdown,
-            );
-          },
-        ),
-      ),
+      useSafeArea: true,
+      onLoading:
+          onLoading ?? (_) => const Center(child: CupertinoActivityIndicator()),
+      onError:
+          onError ?? (_) => Center(child: Text(getDefaultErrorMessage(path))),
+      bodyBuilder: bodyBuilder ?? (_, markdown) => markdown,
     );
   }
 }
