@@ -1,7 +1,7 @@
 name: changelog_widgets
 description: Flutter package to read 'CHANGELOG.md' file
   and display it in the app as a widget.
-version: 1.0.1
+version: 1.1.0
 homepage: https://github.com/DamianAldair/changelog_widgets
 repository: https://github.com/DamianAldair/changelog_widgets
 
@@ -12,7 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_markdown: ^0.6.15
+  flutter_markdown: ^0.6.23
 
 dev_dependencies:
   flutter_test:
