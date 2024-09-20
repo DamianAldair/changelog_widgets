@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Updating `flutter_markdown` library.
+
 ## 1.0.1
 
 - Deleting unused library.
